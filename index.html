@@ -230,6 +230,40 @@
     .metric-val { font-size: 1.1rem; font-weight: 700; color: var(--accent2); }
     .metric-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.1rem; }
 
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg2); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem; display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 1rem;
+    }
+    .project-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .project-tagline { color: var(--accent3); font-size: 0.85rem; margin-bottom: 0.85rem; }
+    .project-desc { color: var(--muted); font-size: 0.875rem; flex-grow: 1; margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .project-tag {
+      font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 100px;
+      background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25);
+      color: var(--accent3);
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--accent2); text-decoration: none; font-size: 0.875rem; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent3); }
+
     /* ── EDUCATION ── */
     #education { background: var(--bg2); }
     .edu-card {
@@ -308,6 +342,7 @@
     <ul class="nav-links">
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -455,6 +490,65 @@
             <div class="metric"><div class="metric-val">15%</div><div class="metric-label">Sales Conversion Lift</div></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label reveal">Things I've built</p>
+      <h2 class="section-title reveal"><span>Projects</span></h2>
+      <p class="section-desc reveal">Side projects exploring distributed systems, agentic AI, and browser automation — all open-source on GitHub.</p>
+
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-icon">⚡</div>
+          <div class="project-title">Kafka Order Pipeline</div>
+          <div class="project-tagline">Event-driven microservices with the saga pattern</div>
+          <p class="project-desc">An end-to-end order processing pipeline built on Node.js + Kafka + Postgres + Redis. Demonstrates the saga pattern, idempotent consumers, retries with exponential backoff, dead-letter queues, and per-user partitioned ordering across 4 microservices.</p>
+          <div class="project-tags">
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Kafka</span>
+            <span class="project-tag">Postgres</span>
+            <span class="project-tag">Redis</span>
+            <span class="project-tag">Docker</span>
+          </div>
+          <a class="project-link" href="https://github.com/ankitya9i/kafka-order-pipeline" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-icon">🤖</div>
+          <div class="project-title">AI Bug Fixer</div>
+          <div class="project-tagline">Agentic Claude API bot for Jira</div>
+          <p class="project-desc">An autonomous Node.js bot that polls Jira for new bugs, drives the Claude API in a tool-use loop to investigate and fix issues across multiple repositories, then opens a Bitbucket pull request with the fix and notifies the team on Slack.</p>
+          <div class="project-tags">
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">Claude API</span>
+            <span class="project-tag">Anthropic SDK</span>
+            <span class="project-tag">Agentic AI</span>
+            <span class="project-tag">Bitbucket API</span>
+          </div>
+          <a class="project-link" href="https://github.com/ankitya9i/ai-bug-fixer" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-icon">🎯</div>
+          <div class="project-title">LinkedIn Easy Apply Bot</div>
+          <div class="project-tagline">TypeScript + Playwright job applier</div>
+          <p class="project-desc">A browser automation bot that scans LinkedIn for jobs matching a configurable skill profile, scores each job, and auto-applies via Easy Apply. Includes rate limits, session persistence, a local SQLite job store, and desktop notifications for every outcome.</p>
+          <div class="project-tags">
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Playwright</span>
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">node-cron</span>
+            <span class="project-tag">Automation</span>
+          </div>
+          <a class="project-link" href="https://github.com/ankitya9i/linkedin-easy-apply-bot" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
       </div>
     </div>
   </section>
